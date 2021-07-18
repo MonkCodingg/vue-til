@@ -37,7 +37,7 @@ export default {
       const userData = {
         username: this.username,
         password: this.password,
-        nickname: this.username,
+        nickname: this.nickname,
       };
       const { data } = await registerUser(userData);
       console.log(data.username);
