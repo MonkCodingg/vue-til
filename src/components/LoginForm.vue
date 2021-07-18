@@ -9,6 +9,7 @@
       <input id="password" type="text" v-model="password" />
     </div>
     <button type="submint">로그인</button>
+    <p>{{ logMessage }}</p>
   </form>
 </template>
 
@@ -18,8 +19,11 @@ import { loginUser } from '@/api/index';
 export default {
   data() {
     return {
+      // form value
       username: '',
       password: '',
+      // log
+      logMessage: '',
     };
   },
   methods: {
@@ -28,8 +32,13 @@ export default {
         username: this.username,
         password: this.password,
       };
-      const response = await loginUser(userData);
-      console.log(response);
+      const { data } = await loginUser(userData);
+      console.log(data.user.username);
+      this.logMessage = `${data.user.username} 님 환영합니다.`;
+    },
+    initForm() {
+      this.username = '';
+      this.password = '';
     },
   },
 };
