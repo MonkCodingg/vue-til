@@ -2,7 +2,10 @@
   <div>
     <div class="main list-container contents">
       <h1 class="page-header">Today I Learned</h1>
-      <ul>
+      <div v-if="isLoading">
+        Loading...
+      </div>
+      <ul v-else>
         <PostListItem
           v-for="postItem in postItems"
           v-bind:key="postItem._id"
@@ -27,11 +30,14 @@ export default {
   data() {
     return {
       postItems: [],
+      isLoading: false,
     };
   },
   methods: {
     async fetchData() {
+      this.isLoading = true;
       const { data } = await fetchPosts();
+      this.isLoading = false;
       this.postItems = data.posts;
     },
   },
