@@ -8,7 +8,6 @@
     </div>
     <div class="navigations">
       <template v-if="isUserLogin">
-        <span class="username">{{ $store.state.username }}</span>
         <a href="javascript:;" @click="logoutUser" class="logout-button"
           >Logout</a
         >

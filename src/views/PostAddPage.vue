@@ -1,9 +1,16 @@
 <template>
-  <div>포스트 생성 페이지</div>
+  <div class="form-container">
+    <PostAddForm></PostAddForm>
+  </div>
 </template>
 
 <script>
-export default {};
+import PostAddForm from '@/components/posts/PostAddForm.vue';
+export default {
+  components: {
+    PostAddForm,
+  },
+};
 </script>
 
 <style></style>
