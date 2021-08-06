@@ -10,6 +10,9 @@
         <div>
           <label for="contents">Contents:</label>
           <textarea id="contents" type="text" rows="3" v-model="contents" />
+          <p v-if="!isContentsValid" class="validation-text warning">
+            글자 수 200 초과
+          </p>
         </div>
         <button type="submit" class="btn">생성</button>
       </form>
@@ -30,6 +33,11 @@ export default {
       contents: '',
       logMessage: '',
     };
+  },
+  computed: {
+    isContentsValid() {
+      return this.contents.length <= 200;
+    },
   },
   methods: {
     async submitForm() {
