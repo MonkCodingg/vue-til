@@ -13,6 +13,9 @@
         </div>
         <button type="submit" class="btn">생성</button>
       </form>
+      <p class="log">
+        {{ logMessage }}
+      </p>
     </div>
   </div>
 </template>
@@ -25,16 +28,20 @@ export default {
     return {
       title: '',
       contents: '',
+      logMessage: '',
     };
   },
   methods: {
     async submitForm() {
-      const response = await createPosts({
-        title: this.title,
-        contents: this.contents,
-      });
-
-      console.log(response);
+      try {
+        const response = await createPosts({
+          title: this.title,
+          contents: this.contents,
+        });
+        console.log(response);
+      } catch (error) {
+        console.log(error.response.data.message);
+      }
     },
   },
 };
