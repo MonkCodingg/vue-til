@@ -13,13 +13,16 @@ const instance = createInstance();
 function registerUser(userData) {
   return instance.post('signup', userData);
 }
-
+// 로그인 API
 function loginUser(userData) {
   return instance.post('login', userData);
 }
-
+// 학습 노트 데이터 조회 API
 function fetchPosts() {
   return instance.get('posts');
 }
-
-export { registerUser, loginUser, fetchPosts };
+// 학습 노트 데이터 생성 API
+function createPosts(postData) {
+  return instance.post('posts', postData);
+}
+export { registerUser, loginUser, fetchPosts, createPosts };

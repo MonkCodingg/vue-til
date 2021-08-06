@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import { createPosts } from '@/api/index';
+
 export default {
   data() {
     return {
@@ -26,8 +28,13 @@ export default {
     };
   },
   methods: {
-    submitForm() {
-      console.log('submit');
+    async submitForm() {
+      const response = await createPosts({
+        title: this.title,
+        contents: this.contents,
+      });
+
+      console.log(response);
     },
   },
 };
