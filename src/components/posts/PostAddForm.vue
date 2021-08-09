@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { createPosts } from '@/api/index';
+import { createPost } from '@/api/posts';
 
 export default {
   data() {
@@ -42,13 +42,14 @@ export default {
   methods: {
     async submitForm() {
       try {
-        const response = await createPosts({
+        const response = await createPost({
           title: this.title,
           contents: this.contents,
         });
         console.log(response);
       } catch (error) {
         console.log(error.response.data.message);
+        this.logMessage = error.response.data.message;
       }
     },
   },
