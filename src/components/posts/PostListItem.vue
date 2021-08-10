@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { deletePost } from '@/api/posts';
 export default {
   props: {
     postItem: {
@@ -19,8 +20,11 @@ export default {
     },
   },
   methods: {
-    deleteItem() {
-      console.log('delete');
+    async deleteItem() {
+      if (confirm('해당 노트를 삭제하시겠습니까?')) {
+        await deletePost(this.postItem._id);
+        this.$emit('refresh');
+      }
     },
   },
 };

@@ -8,6 +8,7 @@
           v-for="postItem in postItems"
           v-bind:key="postItem._id"
           v-bind:postItem="postItem"
+          @refresh="fetchData"
         ></PostListItem>
         <!-- <li v-for="postItem in postItems" v-bind:key="postItem._id">
           <div class="post-title">{{ postItem.title }}</div>
