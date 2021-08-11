@@ -27,7 +27,8 @@ export default {
       }
     },
     routeEditPage() {
-      this.$router.push('/post/${id}');
+      const id = this.postItem._id;
+      this.$router.push(`/post/${id}`);
     },
   },
 };
