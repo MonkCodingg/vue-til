@@ -12,9 +12,13 @@ function fetchPost(postId) {
 function createPost(postData) {
   return posts.post('/', postData);
 }
-//학습 노트 데이터 삭제 API
+// 학습 노트 데이터 삭제 API
 function deletePost(postId) {
   return posts.delete(postId);
 }
+// 학습 노트 데이터 수정하는 API
+function editPost(postId, postData) {
+  return posts.put(postId, postData);
+}
 
-export { fetchPosts, createPost, deletePost, fetchPost };
+export { fetchPosts, createPost, deletePost, fetchPost, editPost };
