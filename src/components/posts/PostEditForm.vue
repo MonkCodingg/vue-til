@@ -59,7 +59,6 @@ export default {
     const { data } = await fetchPost(id);
     this.title = data.title;
     this.contents = data.contents;
-    console.log(data);
   },
 };
 </script>

@@ -4,7 +4,7 @@ import { posts } from './index';
 function fetchPosts() {
   return posts.get('/');
 }
-// 하나의 학습 노트 목록 조회 API
+// 하나의 학습 노트 조회 API
 function fetchPost(postId) {
   return posts.get(postId);
 }
