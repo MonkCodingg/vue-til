@@ -19,11 +19,11 @@ export default {
       required: true,
     },
   },
-  filters: {
-    formatDate(value) {
-      return new Date(value);
-    },
-  },
+  // filters: {
+  //   formatDate(value) {
+  //     return new Date(value);
+  //   },
+  // },
   methods: {
     async deleteItem() {
       if (confirm('해당 노트를 삭제하시겠습니까?')) {
